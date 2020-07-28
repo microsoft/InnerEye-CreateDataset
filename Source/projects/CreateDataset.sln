@@ -1,0 +1,152 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dataset Utils", "Dataset Utils", "{B7D6C855-EC4B-4306-B82B-B06881B919CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedLib.IO", "MedLib.IO\MedLib.IO.csproj", "{97046B3E-6DE6-4A84-946D-17BA956411DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{FD8C2897-538E-4E1F-8F8B-A04AC994B8C1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageProcessingClr", "ImageProcessingClr\ImageProcessingClr.vcxproj", "{751B4413-935A-42EC-911C-206172A3171B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageProcessing", "ImageProcessing\ImageProcessing.vcxproj", "{983294A3-B517-41AE-AA59-6E58031D5462}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedLib.IO.Tests", "MedLib.IO.Tests\MedLib.IO.Tests.csproj", "{6BDEFC0B-782B-41EC-AAEE-E730C0D25FAA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{51886B95-CF56-45F1-A768-691783F6130E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Image Processing C++", "Image Processing C++", "{1926C886-CE59-4F3E-A095-19407910FECD}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "InnerEye.CreateDataset.Data", "InnerEye.CreateDataset.Data\InnerEye.CreateDataset.Data.fsproj", "{1B389782-77EE-471D-AB4C-F5A10A8B2FFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnerEye.CreateDataset.Core", "InnerEye.CreateDataset.Core\InnerEye.CreateDataset.Core.csproj", "{F782854E-6B36-42A5-9861-FE4E7867BB41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageProcessingClrTest", "ImageProcessingClrTest\ImageProcessingClrTest.csproj", "{F7604598-10F9-41CC-BBF4-805C67F48263}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnerEye.CreateDataset.Runner", "InnerEye.CreateDataset.Runner\InnerEye.CreateDataset.Runner.csproj", "{50C74466-B659-4209-BAEC-AEB9A966A2C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnerEye.CreateDataset.Common", "InnerEye.CreateDataset.Common\InnerEye.CreateDataset.Common.csproj", "{8DB64D15-3241-44D8-805D-CDFD7A5623A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateDataset.TestHelpers", "CreateDataset.TestHelpers\CreateDataset.TestHelpers.csproj", "{9255769C-41F4-47F9-A8E2-97B18D0971F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnerEye.CreateDataset.Contours", "InnerEye.CreateDataset.Contours\InnerEye.CreateDataset.Contours.csproj", "{A27FA639-8A1D-40CC-8BC8-7BEA28E615B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnerEye.CreateDataset.Math", "InnerEye.CreateDataset.Math\InnerEye.CreateDataset.Math.csproj", "{D8E303DA-8713-411D-A909-FE507F39A0AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnerEye.CreateDataset.Math.Tests", "InnerEye.CreateDataset.Math.Tests\InnerEye.CreateDataset.Math.Tests.csproj", "{E56BA5C6-640B-4591-819F-AED8D41EAAD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnerEye.CreateDataset.Volumes", "InnerEye.CreateDataset.Volumes\InnerEye.CreateDataset.Volumes.csproj", "{12416238-4311-4D15-A2D9-4F3ED7771244}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{34FF6CB2-0EEF-4D2A-BCE7-7CF7E7050C1E}"
+	ProjectSection(SolutionItems) = preProject
+		build.yml = build.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97046B3E-6DE6-4A84-946D-17BA956411DD}.Debug|x64.ActiveCfg = Debug|x64
+		{97046B3E-6DE6-4A84-946D-17BA956411DD}.Debug|x64.Build.0 = Debug|x64
+		{97046B3E-6DE6-4A84-946D-17BA956411DD}.Release|x64.ActiveCfg = Release|x64
+		{97046B3E-6DE6-4A84-946D-17BA956411DD}.Release|x64.Build.0 = Release|x64
+		{751B4413-935A-42EC-911C-206172A3171B}.Debug|x64.ActiveCfg = Debug|x64
+		{751B4413-935A-42EC-911C-206172A3171B}.Debug|x64.Build.0 = Debug|x64
+		{751B4413-935A-42EC-911C-206172A3171B}.Release|x64.ActiveCfg = Release|x64
+		{751B4413-935A-42EC-911C-206172A3171B}.Release|x64.Build.0 = Release|x64
+		{983294A3-B517-41AE-AA59-6E58031D5462}.Debug|x64.ActiveCfg = Debug|x64
+		{983294A3-B517-41AE-AA59-6E58031D5462}.Debug|x64.Build.0 = Debug|x64
+		{983294A3-B517-41AE-AA59-6E58031D5462}.Release|x64.ActiveCfg = Release|x64
+		{983294A3-B517-41AE-AA59-6E58031D5462}.Release|x64.Build.0 = Release|x64
+		{6BDEFC0B-782B-41EC-AAEE-E730C0D25FAA}.Debug|x64.ActiveCfg = Debug|x64
+		{6BDEFC0B-782B-41EC-AAEE-E730C0D25FAA}.Debug|x64.Build.0 = Debug|x64
+		{6BDEFC0B-782B-41EC-AAEE-E730C0D25FAA}.Release|x64.ActiveCfg = Release|x64
+		{6BDEFC0B-782B-41EC-AAEE-E730C0D25FAA}.Release|x64.Build.0 = Release|x64
+		{1B389782-77EE-471D-AB4C-F5A10A8B2FFE}.Debug|x64.ActiveCfg = Debug|x64
+		{1B389782-77EE-471D-AB4C-F5A10A8B2FFE}.Debug|x64.Build.0 = Debug|x64
+		{1B389782-77EE-471D-AB4C-F5A10A8B2FFE}.Release|x64.ActiveCfg = Release|x64
+		{1B389782-77EE-471D-AB4C-F5A10A8B2FFE}.Release|x64.Build.0 = Release|x64
+		{F782854E-6B36-42A5-9861-FE4E7867BB41}.Debug|x64.ActiveCfg = Debug|x64
+		{F782854E-6B36-42A5-9861-FE4E7867BB41}.Debug|x64.Build.0 = Debug|x64
+		{F782854E-6B36-42A5-9861-FE4E7867BB41}.Release|x64.ActiveCfg = Release|x64
+		{F782854E-6B36-42A5-9861-FE4E7867BB41}.Release|x64.Build.0 = Release|x64
+		{F7604598-10F9-41CC-BBF4-805C67F48263}.Debug|x64.ActiveCfg = Debug|x64
+		{F7604598-10F9-41CC-BBF4-805C67F48263}.Debug|x64.Build.0 = Debug|x64
+		{F7604598-10F9-41CC-BBF4-805C67F48263}.Release|x64.ActiveCfg = Release|x64
+		{F7604598-10F9-41CC-BBF4-805C67F48263}.Release|x64.Build.0 = Release|x64
+		{50C74466-B659-4209-BAEC-AEB9A966A2C3}.Debug|x64.ActiveCfg = Debug|x64
+		{50C74466-B659-4209-BAEC-AEB9A966A2C3}.Debug|x64.Build.0 = Debug|x64
+		{50C74466-B659-4209-BAEC-AEB9A966A2C3}.Release|x64.ActiveCfg = Release|x64
+		{50C74466-B659-4209-BAEC-AEB9A966A2C3}.Release|x64.Build.0 = Release|x64
+		{8DB64D15-3241-44D8-805D-CDFD7A5623A8}.Debug|x64.ActiveCfg = Debug|x64
+		{8DB64D15-3241-44D8-805D-CDFD7A5623A8}.Debug|x64.Build.0 = Debug|x64
+		{8DB64D15-3241-44D8-805D-CDFD7A5623A8}.Release|x64.ActiveCfg = Release|x64
+		{8DB64D15-3241-44D8-805D-CDFD7A5623A8}.Release|x64.Build.0 = Release|x64
+		{9255769C-41F4-47F9-A8E2-97B18D0971F5}.Debug|x64.ActiveCfg = Debug|x64
+		{9255769C-41F4-47F9-A8E2-97B18D0971F5}.Debug|x64.Build.0 = Debug|x64
+		{9255769C-41F4-47F9-A8E2-97B18D0971F5}.Release|x64.ActiveCfg = Release|x64
+		{9255769C-41F4-47F9-A8E2-97B18D0971F5}.Release|x64.Build.0 = Release|x64
+		{A27FA639-8A1D-40CC-8BC8-7BEA28E615B2}.Debug|x64.ActiveCfg = Debug|x64
+		{A27FA639-8A1D-40CC-8BC8-7BEA28E615B2}.Debug|x64.Build.0 = Debug|x64
+		{A27FA639-8A1D-40CC-8BC8-7BEA28E615B2}.Release|x64.ActiveCfg = Release|x64
+		{A27FA639-8A1D-40CC-8BC8-7BEA28E615B2}.Release|x64.Build.0 = Release|x64
+		{D8E303DA-8713-411D-A909-FE507F39A0AE}.Debug|x64.ActiveCfg = Debug|x64
+		{D8E303DA-8713-411D-A909-FE507F39A0AE}.Debug|x64.Build.0 = Debug|x64
+		{D8E303DA-8713-411D-A909-FE507F39A0AE}.Release|x64.ActiveCfg = Release|x64
+		{D8E303DA-8713-411D-A909-FE507F39A0AE}.Release|x64.Build.0 = Release|x64
+		{E56BA5C6-640B-4591-819F-AED8D41EAAD7}.Debug|x64.ActiveCfg = Debug|x64
+		{E56BA5C6-640B-4591-819F-AED8D41EAAD7}.Debug|x64.Build.0 = Debug|x64
+		{E56BA5C6-640B-4591-819F-AED8D41EAAD7}.Release|x64.ActiveCfg = Release|x64
+		{E56BA5C6-640B-4591-819F-AED8D41EAAD7}.Release|x64.Build.0 = Release|x64
+		{12416238-4311-4D15-A2D9-4F3ED7771244}.Debug|x64.ActiveCfg = Debug|x64
+		{12416238-4311-4D15-A2D9-4F3ED7771244}.Debug|x64.Build.0 = Debug|x64
+		{12416238-4311-4D15-A2D9-4F3ED7771244}.Release|x64.ActiveCfg = Release|x64
+		{12416238-4311-4D15-A2D9-4F3ED7771244}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{97046B3E-6DE6-4A84-946D-17BA956411DD} = {FD8C2897-538E-4E1F-8F8B-A04AC994B8C1}
+		{751B4413-935A-42EC-911C-206172A3171B} = {1926C886-CE59-4F3E-A095-19407910FECD}
+		{983294A3-B517-41AE-AA59-6E58031D5462} = {1926C886-CE59-4F3E-A095-19407910FECD}
+		{6BDEFC0B-782B-41EC-AAEE-E730C0D25FAA} = {FD8C2897-538E-4E1F-8F8B-A04AC994B8C1}
+		{1B389782-77EE-471D-AB4C-F5A10A8B2FFE} = {B7D6C855-EC4B-4306-B82B-B06881B919CD}
+		{F782854E-6B36-42A5-9861-FE4E7867BB41} = {B7D6C855-EC4B-4306-B82B-B06881B919CD}
+		{F7604598-10F9-41CC-BBF4-805C67F48263} = {51886B95-CF56-45F1-A768-691783F6130E}
+		{8DB64D15-3241-44D8-805D-CDFD7A5623A8} = {B7D6C855-EC4B-4306-B82B-B06881B919CD}
+		{9255769C-41F4-47F9-A8E2-97B18D0971F5} = {51886B95-CF56-45F1-A768-691783F6130E}
+		{A27FA639-8A1D-40CC-8BC8-7BEA28E615B2} = {FD8C2897-538E-4E1F-8F8B-A04AC994B8C1}
+		{D8E303DA-8713-411D-A909-FE507F39A0AE} = {FD8C2897-538E-4E1F-8F8B-A04AC994B8C1}
+		{E56BA5C6-640B-4591-819F-AED8D41EAAD7} = {FD8C2897-538E-4E1F-8F8B-A04AC994B8C1}
+		{12416238-4311-4D15-A2D9-4F3ED7771244} = {FD8C2897-538E-4E1F-8F8B-A04AC994B8C1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C92B406-8764-4615-B2AF-BFAAC105925D}
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+EndGlobal

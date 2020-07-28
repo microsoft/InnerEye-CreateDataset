@@ -1,0 +1,62 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-2019'
+
+variables:
+  buildConfiguration: 'Release'
+  buildPlatform: "x64"
+
+steps:
+- task: CredScan@3
+
+- task: NuGetToolInstaller@0
+  displayName: 'Use NuGet 4.8.1'
+  inputs:
+    versionSpec: 4.8.1
+
+- task: NuGetCommand@2
+  displayName: 'NuGet Restore'
+  inputs:
+    feedsToUse: config
+    nugetConfigPath: Source/NuGet.config
+    restoreDirectory: '$(Build.SourcesDirectory)/Source/thirdparty/packages'
+
+- task: ComponentGovernanceComponentDetection@0
+  inputs:
+    scanType: 'Register'
+    verbosity: 'Verbose'
+    alertWarningLevel: 'Critical'
+    failOnAlert: true
+
+- task: VSBuild@1
+  displayName: 'Build all solutions'
+  inputs:
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+    clean: true
+    msbuildArchitecture: x64
+    createLogFile: true
+
+- task: VSTest@2
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\*test*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)/Source/projects/InnerEye.CreateDataset.Runner/bin'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    CleanTargetFolder: true
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'CreateDatasetRunner'
+    publishLocation: 'Container'

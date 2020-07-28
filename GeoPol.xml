@@ -1,0 +1,23 @@
+<!-- List of Include Files and folders and exception lists for this repo for GeoPolitical scanning. Contact Joerow for detail. -->
+<!-- This file is consumed by PowerShell scripts -->
+<!DOCTYPE varsdefined [
+<!ENTITY GitReposFolder "C:\GITs\Repos">
+<!ENTITY GitRepoName "InnerEye-CreateDataset">
+]>
+
+<GeoPol_Folders>
+<!-- List of Folders to include for GeoPolitical scanning -->
+<SourceGitFolder>&GitReposFolder;\github\&GitRepoName;</SourceGitFolder>
+<GitRepoName>&GitRepoName;</GitRepoName>
+  <Component Include="List here folders to Include in a GeoPol Scan">
+  <!-- . means the entire repo -->
+    <IncludeFolder>.</IncludeFolder>
+  </Component>
+    <Component Exclude="List exceptions here to not be scanned, that have been included above">
+    <ExcludeFolder>.gitignore</ExcludeFolder>
+    <ExcludeFolder>GeoPol.xml</ExcludeFolder>
+    <ExcludeFolder>THIRDPARTYNOTICES.md</ExcludeFolder>
+    <ExcludeFolder>*.nii.gz</ExcludeFolder>
+    <ExcludeFolder>*.dcm</ExcludeFolder>
+  </Component>
+</GeoPol_Folders>

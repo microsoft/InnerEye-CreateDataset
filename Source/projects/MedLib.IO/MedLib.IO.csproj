@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{97046B3E-6DE6-4A84-946D-17BA956411DD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MedLib.IO</RootNamespace>
+    <AssemblyName>MedLib.IO</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\Microsoft.CreateDataset.Extended.ruleset</CodeAnalysisRuleSet>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>7.2</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\Microsoft.CreateDataset.Extended.ruleset</CodeAnalysisRuleSet>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>7.2</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dicom.Core, Version=4.0.4.0, Culture=neutral, PublicKeyToken=3a13f649e28eb09a, processorArchitecture=MSIL">
+      <HintPath>..\..\thirdparty\packages\fo-dicom.Desktop.4.0.5\lib\net45\Dicom.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="LZ4, Version=1.0.15.93, Culture=neutral, PublicKeyToken=62e1b5ec1eec9bdd, processorArchitecture=MSIL">
+      <HintPath>..\..\thirdparty\packages\lz4net.1.0.15.93\lib\net4-client\LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MoreLinq, Version=3.3.2.0, Culture=neutral, PublicKeyToken=384d532d7e88985d, processorArchitecture=MSIL">
+      <HintPath>..\..\thirdparty\packages\morelinq.3.3.2\lib\net451\MoreLinq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\thirdparty\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DicomRtHelpers.cs" />
+    <Compile Include="Extensions\DicomConstants.cs" />
+    <Compile Include="Extensions\DicomDatasetExtensions.cs" />
+    <Compile Include="Extensions\DicomExtensions.cs" />
+    <Compile Include="Extensions\VolumeRescaleConvert.cs">
+      <DependentUpon>VolumeRescaleConvert.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="FastParallel.cs" />
+    <Compile Include="ContourRenderingInformation.cs" />
+    <Compile Include="Models\BaseInformation.cs" />
+    <Compile Include="Models\Hdf5Object.cs" />
+    <Compile Include="NiiToDicomHelpers.cs" />
+    <Compile Include="Readers\DicomFileAndPath.cs" />
+    <Compile Include="Readers\DicomFolderContents.cs" />
+    <Compile Include="Readers\DicomSeriesContent.cs" />
+    <Compile Include="Readers\DicomSeriesImageReader.cs" />
+    <Compile Include="Readers\DicomSeriesInformationValidator.cs" />
+    <Compile Include="Readers\StrictGeometricAcceptanceTest.cs" />
+    <Compile Include="Readers\IVolumeGeometricAcceptanceTest.cs" />
+    <Compile Include="Readers\NonStrictGeometricAcceptanceTest.cs" />
+    <Compile Include="Models\SliceInformation.cs" />
+    <Compile Include="Models\VolumeInformation.cs" />
+    <Compile Include="RGBValue.cs" />
+    <Compile Include="RT\DicomCommonImage.cs" />
+    <Compile Include="RT\DicomFrameOfReference.cs" />
+    <Compile Include="RT\DicomSeries.cs" />
+    <Compile Include="RT\DicomSOPCommon.cs" />
+    <Compile Include="StreamingExtensions.cs" />
+    <Compile Include="RT\DicomEquipment.cs" />
+    <Compile Include="RT\DicomPatient.cs" />
+    <Compile Include="RT\DicomPersonNameConverter.cs" />
+    <Compile Include="RT\DicomStudy.cs" />
+    <Compile Include="MedIO.cs" />
+    <Compile Include="Models\MedicalVolume.cs" />
+    <Compile Include="Models\DicomRt\RadiotherapyContour.cs" />
+    <Compile Include="Models\DicomRt\RadiotherapyStruct.cs" />
+    <Compile Include="NiftiIO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RT\DicomRTSeries.cs" />
+    <Compile Include="Readers\DicomIdentifiers.cs" />
+    <Compile Include="Readers\DicomSeriesReader.cs" />
+    <Compile Include="RT\DicomRTFrameOFReference.cs" />
+    <Compile Include="RT\DicomRTReferencedSeries.cs" />
+    <Compile Include="RT\DicomRTReferencedStudy.cs" />
+    <Compile Include="RT\DicomRTStructureSet.cs" />
+    <Compile Include="RT\DicomRTContour.cs" />
+    <Compile Include="RT\DicomRTContourImageItem.cs" />
+    <Compile Include="RT\DicomRTContourItem.cs" />
+    <Compile Include="RT\DicomRTObservation.cs" />
+    <Compile Include="Readers\RTStructReader.cs" />
+    <Compile Include="RT\DicomRTStructureSetROI.cs" />
+    <Compile Include="Writers\RTStructCreator.cs" />
+    <Compile Include="Writers\RtStructWriter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InnerEye.CreateDataset.Contours\InnerEye.CreateDataset.Contours.csproj">
+      <Project>{a27fa639-8a1d-40cc-8bc8-7bea28e615b2}</Project>
+      <Name>InnerEye.CreateDataset.Contours</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InnerEye.CreateDataset.Volumes\InnerEye.CreateDataset.Volumes.csproj">
+      <Project>{12416238-4311-4d15-a2d9-4f3ed7771244}</Project>
+      <Name>InnerEye.CreateDataset.Volumes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Extensions\VolumeRescaleConvert.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>VolumeRescaleConvert.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\thirdparty\packages\fo-dicom.Desktop.4.0.5\build\net45\fo-dicom.Desktop.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\thirdparty\packages\fo-dicom.Desktop.4.0.5\build\net45\fo-dicom.Desktop.targets'))" />
+  </Target>
+  <Import Project="..\..\thirdparty\packages\fo-dicom.Desktop.4.0.5\build\net45\fo-dicom.Desktop.targets" Condition="Exists('..\..\thirdparty\packages\fo-dicom.Desktop.4.0.5\build\net45\fo-dicom.Desktop.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

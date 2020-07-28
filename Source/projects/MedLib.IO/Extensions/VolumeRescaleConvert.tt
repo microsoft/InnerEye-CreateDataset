@@ -1,0 +1,94 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ output extension=".cs" #>
+namespace MedLib.IO.Extensions
+{
+	using System;
+	using System.IO;
+    using static MedLib.IO.NiftiIO;
+
+	/// <summary>
+	/// Static methods to convert arrays of {byte, short, float, UInt16} encoded as byte arrays to {byte, short, float, UInt16} applying a linear map to values
+	/// as they are processed. 
+	/// </summary>
+    public static class VolumeRescaleConvert
+	{
+<#
+	var srcTypes = new[] {
+		"byte", "short", "ushort", "float"
+	};
+
+	var typeHandling = new[] {
+		new {Type = "byte", Round = "int vi = (int)Math.Round(v)", Convert= "(byte)(vi < byte.MinValue ? byte.MinValue : (vi > byte.MaxValue ? byte.MaxValue : vi))"},
+		new {Type = "short", Round = "int vi = (int)Math.Round(v)", Convert= "(short)(vi < short.MinValue ? short.MinValue : (vi > short.MaxValue ? short.MaxValue : vi))"},
+		new {Type = "ushort", Round = "int vi = (int)Math.Round(v)", Convert= "(ushort)(vi < ushort.MinValue ? ushort.MinValue : (vi > ushort.MaxValue ? ushort.MaxValue : vi))"},
+		new {Type = "float", Round = "float vi = (v)", Convert = "vi"},
+	};
+
+	foreach (var T in typeHandling) {
+		foreach( var Y in srcTypes ) {
+#>
+
+		/// <summary>
+		/// Returns an action to convert an array of bytes encoding a contiguous array of type <#=Y#> to an array of type <#=T.Type#> applying slope and intercept
+		/// to the given values. All values are clamped to the range <#=T.Type#>.MinValue and <#=T.Type#>.MaxValue as appropriate.
+		/// </summary>
+		public unsafe static Action<int, int> Convert<#=Y#>(byte[] srcBytes, <#=T.Type#>[] output, float slope, float intercept)
+		{
+			return (startIndex, endIndex) =>
+			{
+				fixed (byte* pSrc = srcBytes)
+				fixed (<#=T.Type#>* pDest = output)
+				{
+					<#=T.Type#>* pDestEnd = pDest + endIndex;
+					<#=T.Type#>* pDestPtr = pDest + startIndex;
+#pragma warning disable IDE0004 // Remove Unnecessary Cast
+					<#=Y#>* pSrcPtr = (<#=Y#>*)pSrc + startIndex;
+#pragma warning restore IDE0004 // Remove Unnecessary Cast
+					for (; pDestPtr <= pDestEnd; pDestPtr++, pSrcPtr++)
+					{
+						var v = *pSrcPtr * slope + intercept;
+						<#=T.Round#>;
+						*pDestPtr =<#=T.Convert#>;
+					}
+				}
+			};
+		}
+<#}}#>
+
+<#
+	foreach( var Y in srcTypes ) {
+#>
+
+		/// <summary>
+		/// Helper method to pick an appropriate conversion function from the above based on the data type encoded in srcData
+		/// </summary>
+		public static Action<int, int> BatchConvert(NiftiInternal.Nifti1Datatype srcDataType, byte[] srcData, <#=Y#>[] output, float slope, float intercept)
+        {
+            switch (srcDataType)
+            {
+                case NiftiInternal.Nifti1Datatype.DT_UNSIGNED_CHAR:
+                    {
+                        return Convertbyte(srcData, output, slope, intercept);
+                    }
+                case NiftiInternal.Nifti1Datatype.DT_SIGNED_SHORT:
+                    {
+                        return Convertshort(srcData, output, slope, intercept);
+                    }
+                case NiftiInternal.Nifti1Datatype.DT_FLOAT:
+                    {
+                        return Convertfloat(srcData, output, slope, intercept);
+                    }
+                case NiftiInternal.Nifti1Datatype.DT_UINT16:
+                    {
+                        return Convertushort(srcData, output, slope, intercept);
+                    }
+                default:
+                    {
+                        throw new InvalidDataException($"BatchConvert: format {srcDataType} is not presently supported.");
+                    }
+            }
+        }
+<#}#>
+    }
+}
