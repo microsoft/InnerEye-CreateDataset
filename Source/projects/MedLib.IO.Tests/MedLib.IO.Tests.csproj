@@ -113,10 +113,10 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <Content Include="TestData\sample_dicom\1.dcm">
+    <Content Include="TestData\sample_dicom\1_mod.dcm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\sample_dicom\2.dcm">
+    <Content Include="TestData\sample_dicom\2_mod.dcm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="TestData\vol_int16.nii.gz">
@@ -125,7 +125,7 @@
     <Content Include="TestData\vol_uint16.nii.gz">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\sample_dicom\rtstruct.dcm">
+    <Content Include="TestData\sample_dicom\rtstruct_mod.dcm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

@@ -25,7 +25,7 @@
         {
             var prostateFolder = TestData.GetFullImagesPath("sample_dicom");
             var files = Directory.EnumerateFiles(prostateFolder)
-                .Where(x => !x.EndsWith("rtstruct.dcm")).ToList();
+                .Where(x => !x.EndsWith("rtstruct_mod.dcm")).ToList();
 
             var dicomFiles = new DicomFile[files.Count];
 
