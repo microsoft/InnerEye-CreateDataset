@@ -99,7 +99,7 @@ InnerEye.CreateDataset.Runner.exe analyze  --datasetFolder=<full path to the NIF
 ```
 
 This will create a folder called `statistics` inside the dataset folder with several csv files containing dataset statistics.
-A detailed explanation of the csv files is available [here](/Source/projects/InnerEye.CreateDataset.Common/Models/StatisticsCalculator.cs).
+A detailed explanation of the csv files is available [here](/Source/projects/InnerEye.CreateDataset.Common/StatisticsCalculator.cs).
 
 
 # Contributing
