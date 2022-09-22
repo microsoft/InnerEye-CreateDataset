@@ -65,6 +65,25 @@ If this switch is provided, invalid subjects will be discarded, and the dataset
 will be created without them. If not provided, the program will exit when encountering the first invalid subject.
 If you set this switch, you should check the output of the job for information about discarded subjects.
 
+## `--allowNameClashes`
+
+If this switch is provided (True), structure renaming causes a choice to be made between named structures when several options exist, er than causing
+renaming to fail. Specifically, for a name mapping "oldName1,oldName2,...:newName":
+
+- If AllowNameClashes is not set and structures exist for more than one of the names (old and/or new), renaming s.
+- Otherwise, if a structure named newName exists, no renaming is done.
+- Otherwise, if a structure named oldNameK exists and no structures with names oldName1, ..., oldName[K-1] t, then it is
+renamed to newName.
+
+Thus in summary, if names clash, an existing "newName" structure is preferred (we assume the oldNames are -preferred variants
+of the canonical newName), otherwise earlier "oldName"s in the list have priority over later ones.
+
+## `--requireAllGroundTruthStructures`
+
+If this switch is provided alongside `--groundTruthDescendingPriority`, then all structures that are given in
+`--groundTruthDescendingPriority` must be present. If any are not present,
+then either that volume is discarded (if `--discardInvalidSubjects` is set) or an exception is raised.
+
 ## `--dropNamesContaining <names>`
 
 Drop any structures with names containing the specified substring before name mappings are applied. This will usually have the
@@ -73,3 +92,20 @@ effect (depending on other switches) of images containing such structures being 
 This is helpful to remove auto-generated structures that would otherwise be included in the dataset, and bloat its size.
 
 Example: `--dropNamesContaining planning` will drop all structures containing the string `planning`.
+
+## `--renameIndex` and `--priorityIndex`: Support for built-in complex renaming
+
+The dataset creation tool has been used to create datasets for segmenting Head and Neck tumors, where we saw a huge
+variability in structure names. This made it almost impossible to specify everything on the command line.
+The `--renameIndex` switch allows to specify a built-in set of renaming rules.
+
+These rules are specified in [CommandlineCreateDatasetRecipes.cs](https://github.com/microsoft/InnerEye-CreateDataset/blob/main/Source/projects/InnerEye.CreateDataset.Core/Commandline/CommandlineCreateDatasetRecipes.cs), in the variable `PrespecifiedNameMappings`.
+
+Example: `--renameIndex 0` will apply the first set of renaming rules.
+
+Similarly, the `--priorityIndex` switch allows to specify a built-in set of structure priorities, that are defined in
+the variable `PrespecifiedGroundTruthDescendingPriorities` in [CommandlineCreateDatasetRecipes.cs](https://github.com/microsoft/InnerEye-CreateDataset/blob/main/Source/projects/InnerEye.CreateDataset.Core/Commandline/CommandlineCreateDatasetRecipes.cs)
+
+Example: `--priorityIndex 0` will apply the first set of structure priorities.
+
+You can add your own renaming rules and structure priorities to the code, recompile the tool, and then use them with the `--renameIndex` and `--priorityIndex` switches.
