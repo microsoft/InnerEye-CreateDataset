@@ -5,13 +5,13 @@ the `InnerEye.CreateDataset.Runner` project and run `InnerEye.CreateDataset.Runn
 
 The options are defined in [CommandlineCreateDataset.cs](https://github.com/microsoft/InnerEye-CreateDataset/blob/main/Source/projects/InnerEye.CreateDataset.Core/Commandline/CommandlineCreateDataset.cs).
 
-## `--rename`: Controls the renaming of ground truth structures
+## `--rename`: Renaming and modifying ground truth structures
 
-A mapping of structure names in the Dicom dataset to structure names in the nifti dataset.
+The argument value is a mapping of structure names in the Dicom dataset to structure names in the nifti dataset.
 All structure names will be converted to lower case.
 
-A list of structure name mappings that should be applied to the dataset before doing any other operations on the dataset. 
-Example: 'A,B_something:C' means that all structures called A or B_something in the dicom dataset should be called C 
+A list of structure name mappings that should be applied to the dataset before doing any other operations on the dataset.
+Example: 'A,B_something:C' means that all structures called A or B_something in the dicom dataset should be called C
 in the nifti dataset.
 
 If there are multiple structures that would map to the same name, the first one is preferred. For example, if the series
@@ -22,7 +22,7 @@ If the right hand side of the expression (after the colon) is prefixed by "+", t
 renaming takes place: if "C" already exists, the voxels in each left-hand-side structure are added to C rather than
 replacing it (and the left-hand-side structures are kept).
 
-On the left hand side, structures may be specified as "A.op.B", where "op" is one of "gt,ge,lt,le,intersection,union".
+**Set operations**: On the left hand side, structures may be specified as "A.op.B", where "op" is one of "gt,ge,lt,le,intersection,union".
 In this case, the source for the renaming (or augmentation) is computed from A and B if they both exist. The comparison
 operators refer to the vertical (z) dimension, so "A.gt.B" means "all voxels in A whose z value is greater than that of
 any voxel in B".
@@ -34,6 +34,8 @@ In general, you will want to have all augmentations listed after all renamings, 
 names will be by the time you try the augmentations.
 
 Example: `--rename "whole brain,whole_brain:brain;subtract:nec_cav"` will rename structures called "whole brain" or "whole_brain" to "brain", and "subtract" to "nec_cav". Note that structure names here contain spaces, so you need to quote the whole expression.
+
+Example: `--rename whole_tumour.intersection.nec_cav:rim` will subtract voxels in `nec_cav` from those in `whole_tumour`, and rename the result to `rim`.
 
 ## `--geoNorm`: Controls the resampling of the dataset
 
