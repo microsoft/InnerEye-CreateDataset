@@ -22,7 +22,7 @@ If the right hand side of the expression (after the colon) is prefixed by "+", t
 renaming takes place: if "C" already exists, the voxels in each left-hand-side structure are added to C rather than
 replacing it (and the left-hand-side structures are kept).
 
-**Set operations**: On the left hand side, structures may be specified as "A.op.B", where "op" is one of "gt,ge,lt,le,intersection,union".
+**Set operations**: On the left hand side, structures may be specified as "A.op.B", where "op" is one of "gt,ge,lt,le,intersection,union,minus".
 In this case, the source for the renaming (or augmentation) is computed from A and B if they both exist. The comparison
 operators refer to the vertical (z) dimension, so "A.gt.B" means "all voxels in A whose z value is greater than that of
 any voxel in B".
@@ -35,7 +35,7 @@ names will be by the time you try the augmentations.
 
 Example: `--rename "whole brain,whole_brain:brain;subtract:nec_cav"` will rename structures called "whole brain" or "whole_brain" to "brain", and "subtract" to "nec_cav". Note that structure names here contain spaces, so you need to quote the whole expression.
 
-Example: `--rename whole_tumour.intersection.nec_cav:rim` will subtract voxels in `nec_cav` from those in `whole_tumour`, and rename the result to `rim`.
+Example: `--rename whole_tumour.minus.nec_cav:rim` will subtract voxels in `nec_cav` from those in `whole_tumour`, and rename the result to `rim`.
 
 ## `--geoNorm`: Controls the resampling of the dataset
 
