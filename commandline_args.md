@@ -7,7 +7,7 @@ The options are defined in [CommandlineCreateDataset.cs](https://github.com/micr
 
 ## `--rename`: Renaming and modifying ground truth structures
 
-The argument value is a mapping of structure names in the Dicom dataset to structure names in the nifti dataset.
+The argument value is a mapping of structure names in the DICOM dataset to structure names in the NIFTI dataset.
 All structure names will be converted to lower case.
 
 A list of structure name mappings that should be applied to the dataset before doing any other operations on the dataset.
