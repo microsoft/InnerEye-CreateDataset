@@ -5,7 +5,7 @@ the `InnerEye.CreateDataset.Runner` project and run `InnerEye.CreateDataset.Runn
 
 The options are defined in [CommandlineCreateDataset.cs](https://github.com/microsoft/InnerEye-CreateDataset/blob/main/Source/projects/InnerEye.CreateDataset.Core/Commandline/CommandlineCreateDataset.cs).
 
-## `--rename`: Renaming and modifying ground truth structures
+## `--rename`: Rename and modify ground truth structures
 
 The argument value is a mapping of structure names in the DICOM dataset to structure names in the NIFTI dataset.
 All structure names will be converted to lower case.
@@ -37,7 +37,7 @@ Example: `--rename "whole brain,whole_brain:brain;subtract:nec_cav"` will rename
 
 Example: `--rename whole_tumour.minus.nec_cav:rim` will subtract voxels in `nec_cav` from those in `whole_tumour`, and rename the result to `rim`.
 
-## `--geoNorm`: Controls the resampling of the dataset
+## `--geoNorm`: Control the resampling of the dataset
 
 The spacings to use for geometric normalization, in millimeters.
 3 values must be provided, semicolon separated, in the order X; Y; Z.
@@ -45,11 +45,12 @@ Using a spacing of 0 in any dimension means to not change this specific dimensio
 
 Example: `--geoNorm 1;1;0` will normalize the spacing to 1mm in the X and Y dimensions, and not change the third dimension.
 
-## `--groundTruthDescendingPriority`: Controls the order of structures when making the dataset mutually exclusive
+## `--groundTruthDescendingPriority`: Control the order of structures when making the dataset mutually exclusive
 
-The priority mapping for structures, to ensure they are mutually exclusive. Only structures with names in this set will be uded in the
-resulting dataset. Special case: if names are prefixed by "+", structures with those names will be included, but mutual inclusion will not be
-enforced between those structures and any others.
+The priority mapping for structures, to ensure they are mutually exclusive. Only structures with names in this set will be added to the
+resulting dataset.
+
+Special case: if names are prefixed by "+", structures with those names will be included, but mutual inclusion will not be enforced between those structures and any others.
 
 Example: `--groundTruthDescendingPriority seminalvesicles;prostate;bladder;femur_l;femur_r;rectum;external`
 
@@ -69,16 +70,16 @@ If you set this switch, you should check the output of the job for information a
 
 ## `--allowNameClashes`
 
-If this switch is provided (True), structure renaming causes a choice to be made between named structures when several options exist, er than causing
-renaming to fail. Specifically, for a name mapping "oldName1,oldName2,...:newName":
+If this switch is provided, structure renaming causes a choice to be made between named structures when several options exist, rather than causing
+renaming to fail. Specifically, for a name mapping `oldName1,oldName2,...:newName`:
 
-- If AllowNameClashes is not set and structures exist for more than one of the names (old and/or new), renaming s.
-- Otherwise, if a structure named newName exists, no renaming is done.
-- Otherwise, if a structure named oldNameK exists and no structures with names oldName1, ..., oldName[K-1] t, then it is
-renamed to newName.
+- If `--allowNameClashes` is not set and structures exist for more than one of the names (old and/or new), renaming fails.
+- Otherwise, if a structure named `newName` already exists, no renaming is done.
+- Otherwise, if a structure named `oldNameK` exists and no structures with names `oldName1`, ..., `oldName[K-1]` exist, then it is
+renamed to `newName`.
 
-Thus in summary, if names clash, an existing "newName" structure is preferred (we assume the oldNames are preferred variants
-of the canonical newName), otherwise earlier "oldName"s in the list have priority over later ones.
+Thus in summary, if names clash, an existing `newName` structure is preferred (we assume the `oldNames` are preferred variants
+of the canonical `newName`), otherwise earlier `oldNames` in the list have priority over later ones.
 
 ## `--requireAllGroundTruthStructures`
 
