@@ -20,7 +20,7 @@ Among the core features of this tools are:
 
 Get the installer from [Git for Windows](https://git-scm.com/download/win)
 
- The installer will prompt you to "Select Components". Make sure that you tick the boxes for
+ The installer will prompt you to "Select Components". Make sure that you tick the boxes for:
 
 - Git LFS (Large File Support)
 - Git Credential Manager for Windows
