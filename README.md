@@ -22,7 +22,7 @@ Get the installer from [Git for Windows](https://git-scm.com/download/win)
 
  The installer will prompt you to "Select Components". Make sure that you tick the boxes for:
 
-- Git LFS (Large File Support)
+- Git LFS (Large File Support).
 - Git Credential Manager for Windows
 
 After the installation, open a command prompt or the Git Bash:
