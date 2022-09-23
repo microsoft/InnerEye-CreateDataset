@@ -77,7 +77,7 @@ renaming to fail. Specifically, for a name mapping "oldName1,oldName2,...:newNam
 - Otherwise, if a structure named oldNameK exists and no structures with names oldName1, ..., oldName[K-1] t, then it is
 renamed to newName.
 
-Thus in summary, if names clash, an existing "newName" structure is preferred (we assume the oldNames are -preferred variants
+Thus in summary, if names clash, an existing "newName" structure is preferred (we assume the oldNames are preferred variants
 of the canonical newName), otherwise earlier "oldName"s in the list have priority over later ones.
 
 ## `--requireAllGroundTruthStructures`
