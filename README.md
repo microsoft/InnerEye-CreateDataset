@@ -3,7 +3,7 @@
 InnerEye-CreateDataset contains tools to convert medical datasets in DICOM-RT format to NIFTI. Datasets converted using
 this tool can be consumed directly by [InnerEye-DeepLearning](https://github.com/microsoft/InnerEye-DeepLearning).
 
-Among the core features of this tools are
+Among the core features of this tools are:
 
 - Resampling of the dataset to a common voxel size
 - Renaming of ground truth structures
