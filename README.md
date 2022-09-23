@@ -5,7 +5,7 @@ this tool can be consumed directly by [InnerEye-DeepLearning](https://github.com
 
 Among the core features of this tools are:
 
-- Resampling of the dataset to a common voxel size
+- Resampling of the dataset to a common voxel size.
 - Renaming of ground truth structures
 - Making the structures in a dataset mutually exclusive (this is required by some loss functions in InnerEye-DeepLearning)
 - Creating empty structures if they are missing from the dataset
