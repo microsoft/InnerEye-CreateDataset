@@ -48,7 +48,7 @@ Example: `--geoNorm 1;1;0` will normalize the spacing to 1mm in the X and Y dime
 ## `--groundTruthDescendingPriority`: Controls the order of structures when making the dataset mutually exclusive
 
 The priority mapping for structures, to ensure they are mutually exclusive. Only structures with names in this set will be uded in the
-resulting dataset. Special case: if names are prefixed by "+", structures with those names will be included, but mutual usion will not be
+resulting dataset. Special case: if names are prefixed by "+", structures with those names will be included, but mutual inclusion will not be
 enforced between those structures and any others.
 
 Example: `--groundTruthDescendingPriority seminalvesicles;prostate;bladder;femur_l;femur_r;rectum;external`
