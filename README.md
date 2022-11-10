@@ -48,7 +48,7 @@ In the "Individual Components" section, make sure the following are ticked:
 - Everything with .Net Framework 4.6.2 (and all higher framework versions for good measure)
 - VS++ 2015.3 v140 toolset
 - Development actitives: F#
-- SDK: Windows 10.0.17134.0
+- SDK: Windows 10.0.19041.0
 
 Then open the `Source\projects\CreateDataset.sln` solution.
 
