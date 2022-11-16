@@ -34,21 +34,40 @@ Clone the InnerEye-CreateDataset repository on your machine: Run `git lfs clone 
 
 ### Visual Studio
 
-You need an installation of Visual Studio 2017. If you have an existing installation, start the Visual Studio Installer, click on "More...", "Modify"
+#### Install
+
+You need an installation of [[Visual Studio 2019](https://visualstudio.microsoft.com/vs/older-downloads/#visual-studio-2019-and-other-products)]. If you have an existing installation, start the Visual Studio Installer, click on "More..." -> "Modify".
 
 In the "Workloads" section, the following items need to be selected:
 
 - .NET Development
 - Desktop development with C++
-- Azure Development
 
 In the "Individual Components" section, make sure the following are ticked:
 
-- .NET Core
-- Everything with .Net Framework 4.6.2 (and all higher framework versions for good measure)
-- VS++ 2015.3 v140 toolset
-- Development actitives: F#
-- SDK: Windows 10.0.19041.0
+- .NET:
+  - .NET 6.0 Runtime
+  - .NET Core 3.1 Runtime (Long Term Support)
+  - Everything with .NET Framework 4.6.2 (and all higher framework versions for good measure)
+  - .NET SDK
+- Compilers, build tools, and runtimes:
+  - .NET Compiler Platform SDK
+  - C++ 2019 Redistributable Update
+  - MSVC v142 - VS 2019 C++ x64/x86 build tools (Latest)
+  - C++ CMake tools for Windows
+- Debugging and testing:
+  - C++ AddressSanitizer
+  - C++ profiling tools
+- Development actitives:
+  - C++ core features
+  - F# language support
+- SDKs, libraries and frameworks:
+  - C++ ATL for latest v142 build tools (x86 & x64)
+  - Windows 10.0.19041.0
+
+As well as the above listed componenets, some others may be installed also as part of the selected workloads.
+
+#### Set Up CreateDataset solution
 
 Then open the `Source\projects\CreateDataset.sln` solution.
 
@@ -67,7 +86,7 @@ Make sure that the required nuget package sources are available for the solution
 Verify that all projects loaded correctly.
 
 - In the Visual Studio menu, make sure that "Test" / "Test Settings" / "Default Processor Architecture" is set to x64.
-- Build the solution. If it fails, build again.
+- Build the solution ("Build" -> "Build Solution"). If it fails, build again.
 
 To run tests: After the build, tests should be visible in the Test Explorer.
 
